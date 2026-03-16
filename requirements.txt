@@ -1,22 +1,25 @@
-# PyTorch and related libraries (choose version according to your CUDA environment)
-torch>=2.1.0
-torchvision>=0.16.0
-torchaudio>=2.1.0
+# PyTorch (GPU support)
+torch>=2.10.0
+torchvision>=0.25.0
+torchaudio>=2.10.0
 
 # Transformers and dataset handling
-transformers>=4.40.0
-datasets>=2.16.0
+transformers>=4.57.6
+datasets>=3.5.1
 
-# LoRA fine-tuning library
-peft>=0.5.0
+# LoRA / PEFT fine-tuning
+peft>=0.15.2
+safetensors>=0.7.0
+tokenizers>=0.22.2
+sentencepiece>=0.2.1
 
-# Distributed training and acceleration
-accelerate>=0.24.0
+# Distributed training / acceleration
+accelerate>=1.6.0
 
-# vLLM inference library
-vllm>=0.1.2
+# vLLM for inference / deployment
+vllm>=0.17.1
+requests>=2.32.5
 
-# General dependencies
-numpy>=1.25.0
-tqdm>=4.66.0
-requests>=2.32.0
+# Utilities
+numpy>=2.2.6
+tqdm>=4.67.3
