@@ -47,18 +47,14 @@ The fine-tuned model can also be deployed using **vLLM** for efficient and low-l
 
 ### Using the Fine-Tuned Model
 
-from transformers import AutoTokenizer, AutoModelForCausalLM
 ```python
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
 tokenizer = AutoTokenizer.from_pretrained("models/qwen3-8b-lora")
 model = AutoModelForCausalLM.from_pretrained("models/qwen3-8b-lora")
 
 prompt = "How do I make Crispy Salt and Pepper Potatoes?"
-
 inputs = tokenizer(prompt, return_tensors="pt")
-
-outputs = model.generate(
-    **inputs,
-    max_length=500
-)
+outputs = model.generate(**inputs, max_length=500)
 
 print(tokenizer.decode(outputs[0]))
