@@ -14,8 +14,8 @@ from peft import LoraConfig, get_peft_model
 # =============================
 # 路径配置
 # =============================
-model_path = "lora-gustobot/qwen3-8b"
-data_path = "lora-gustobot/recipes_sft.jsonl"
+model_path = ""
+data_path = "recipes_sft.jsonl"
 
 # =============================
 # tokenizer
@@ -112,7 +112,7 @@ model = AutoModelForCausalLM.from_pretrained(
 
 model.resize_token_embeddings(len(tokenizer))
 
-# ⭐⭐⭐ checkpointing（必须）
+
 model.gradient_checkpointing_enable()
 
 # =============================
