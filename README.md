@@ -44,7 +44,7 @@ The fine-tuned model can also be deployed using **vLLM** for efficient and low-l
     }
   ]
 }
-
+```
 ### Using the Fine-Tuned Model
 
 ```python
