@@ -12,7 +12,6 @@ from transformers import (
 from peft import LoraConfig, get_peft_model
 
 # =============================
-# 路径配置
 # =============================
 model_path = ""
 data_path = "recipes_sft.jsonl"
@@ -30,12 +29,10 @@ tokenizer.add_special_tokens(
 )
 
 # =============================
-# dataset
 # =============================
 dataset = load_dataset("json", data_files=data_path)["train"]
 
 # =============================
-# tokenize
 # =============================
 def tokenize_function(example):
 
@@ -100,7 +97,6 @@ dataset = dataset.map(
 )
 
 # =============================
-# model
 # =============================
 model = AutoModelForCausalLM.from_pretrained(
     model_path,
@@ -116,7 +112,6 @@ model.resize_token_embeddings(len(tokenizer))
 model.gradient_checkpointing_enable()
 
 # =============================
-# LoRA config
 # =============================
 lora_config = LoraConfig(
     r=4,
@@ -140,7 +135,6 @@ model.enable_input_require_grads()
 model.print_trainable_parameters()
 
 # =============================
-# training args
 # =============================
 training_args = TrainingArguments(
     output_dir="./qwen3-8b-lora",
@@ -166,7 +160,6 @@ training_args = TrainingArguments(
 )
 
 # =============================
-# data collator（避免重复 padding）
 # =============================
 data_collator = DataCollatorForSeq2Seq(
     tokenizer=tokenizer,
